@@ -8,7 +8,6 @@ depend: []
 softdepend: []
 commands:
    soundsearch:
-      aliases: ss
-      description: Search a sound
+      description: Search a sound using regex
       usage: /soundsearch [name] [group]
       permission: soundsearch.use

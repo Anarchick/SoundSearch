@@ -102,11 +102,11 @@ public class Command implements CommandExecutor {
 		int maxPage;
 		if (regex == null && group == null) {
 			content = Favorite.get();
-			maxPage = Math.floorDiv(content.size(), 18);
+			maxPage = Math.floorDiv(content.size(), 18) +1;
 			this.player.sendMessage(""+ChatColor.GOLD+ChatColor.BOLD+"'FAVORITES' from page "+page+"/"+maxPage);
 		} else {
 			content = Engine.search(regex, group);
-			maxPage = Math.floorDiv(content.size(), 18);
+			maxPage = Math.floorDiv(content.size(), 18) +1;
 			this.player.sendMessage(""+ChatColor.GOLD+ChatColor.BOLD+"'"+regex+"' in group '"+group.name()+"' from page "+page+"/"+maxPage);
 		}
 		
