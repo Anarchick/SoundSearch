@@ -1,0 +1,14 @@
+name: SoundSearch
+author: Anarchick
+description: 'Better than searching using /playsound'
+version: 1.0
+api-version: 1.13
+main: fr.anarchick.soudsearch.Main
+depend: []
+softdepend: []
+commands:
+   soundsearch:
+      alisases: ss
+      description: Search a sound
+      usage: /soundsearch <edit|search|tool> [name]
+      permission: soundsearch.command

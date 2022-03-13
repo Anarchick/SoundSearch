@@ -1,0 +1,41 @@
+plugins {
+    id 'java-library'
+}
+
+repositories {
+    maven {
+      url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+      content {
+        includeGroup 'org.bukkit'
+        includeGroup 'org.spigotmc'
+      }
+    }
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots' }
+ 	 maven { url = 'https://oss.sonatype.org/content/repositories/central' }
+    mavenLocal()
+}
+
+dependencies {
+    compileOnly group: 'org.spigotmc', name: 'spigot-api', version: '1.18.1-R0.1-SNAPSHOT'
+}
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+task export() {
+    group = "EXPORT"
+    description = "build gradle into external folder"
+    doLast {
+        copy {
+            from jar // here it automatically reads jar file produced from jar task
+            into "C:/Users/aeim/Documents/minecraft/btooom/server/plugins"
+        }
+    }
+}
+
+build.finalizedBy export
